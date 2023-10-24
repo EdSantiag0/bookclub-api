@@ -17,6 +17,14 @@ class UserController {
           .min(6, "Senha deve conter ao menos 6 caracteres"),
       });
 
+      const existedUser = await User.findOne({
+        where: { email: req.body.email },
+      });
+
+      if (existedUser) {
+        return res.status(400).json({ error: "Usuário já existe." });
+      }
+
       await schema.validade(req.body);
 
       const hashPassword = await bcrypt.hash(req.body.password, 8);
