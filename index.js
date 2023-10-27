@@ -5,6 +5,7 @@ const app = express();
 
 app.use(express.json());
 app.post("/", UserController.create);
+app.post("/login", UserController.login);
 
 app.listen(3333, async () => {
   try {
