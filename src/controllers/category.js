@@ -2,10 +2,14 @@ import { Category } from "../models";
 
 class CategoryController {
   async getAll(req, res) {
-    const categories = await Category.findAll({
-      order: [["name", "ASC"]],
-    });
-    return res.json(categories);
+    try {
+      const categories = await Category.findAll({
+        order: [["name", "ASC"]],
+      });
+      return res.json(categories);
+    } catch (error) {
+      return res.status(400).json({ error: error?.message });
+    }
   }
 }
 

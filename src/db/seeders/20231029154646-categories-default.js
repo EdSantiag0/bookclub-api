@@ -47,6 +47,12 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        name: "HQ",
+        highlighted: false,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
         name: "Saúde",
         highlighted: false,
         createdAt: new Date(),
