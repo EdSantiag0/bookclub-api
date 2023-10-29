@@ -1,6 +1,7 @@
 import { Router } from "express";
 import authMiddleware from "../middlewares/auth";
 import UserController from "../controllers/user";
+import CategoryController from "../controllers/category";
 
 const routes = new Router();
 
@@ -13,5 +14,6 @@ routes.post("/reset-password", UserController.resetPassword);
 // ---- authenticated routes -------------
 routes.use(authMiddleware);
 routes.post("/user", UserController.get);
+routes.get("/category", CategoryController.getAll);
 
 export default routes;
